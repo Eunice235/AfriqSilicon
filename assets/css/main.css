@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    /* The main container that will hold the lines */
+    html {
+      @apply bg-black h-full;
+      position: relative;
+      width: 100%;
+      background-image: linear-gradient(to right,
+      rgba(71, 79, 91, 0.5) 1px,
+        transparent 1px
+      );
+      background-size: calc(100%/4) 100%; /* Creates 12 equal width columns */
+      background-repeat: repeat-x;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Ensuring all other content will appear above the lines */
+    body {
+      @apply mx-32;
+       position: relative;
+        z-index: 2; /* Ensure that content is above the lines */
+        /* Your content styles here */
+    }
+
+    /* Medium screens (e.g., tablets) */
+    @media screen and (min-width: 768px) {
+      html {
+        /* Adjust to 6 equal columns */
+        background-size: calc(100%/6) 100%;
+      }
+      body {
+        @apply mx-8; /* adjust the margins as needed for medium screens */
+      }
+    }
+
+    /* Large screens */
+    @media screen and (min-width: 1024px) {
+        html {
+            /* Adjust to 6 equal columns */
+            background-size: calc(100%/12) 100%;
+          }
+      body {
+        @apply mx-16; /* adjust the margins as needed for large screens */
+      }
+    }
+
+}
