@@ -5,11 +5,11 @@
 @layer base{
     /* The main container that will hold the lines */
     html {
-      @apply bg-black h-full;
+      @apply bg-black h-full text-white overflow-x-clip;
       position: relative;
       width: 100%;
       background-image: linear-gradient(to right,
-      rgba(71, 79, 91, 0.5) 1px,
+      rgba(58, 63, 68, 0.5) 1px,
         transparent 1px
       );
       background-size: calc(100%/4) 100%; /* Creates 12 equal width columns */
@@ -20,7 +20,7 @@
 
     /* Ensuring all other content will appear above the lines */
     body {
-      @apply mx-32;
+      @apply mx-4;
        position: relative;
         z-index: 2; /* Ensure that content is above the lines */
         /* Your content styles here */
@@ -44,7 +44,7 @@
             background-size: calc(100%/12) 100%;
           }
       body {
-        @apply mx-16; /* adjust the margins as needed for large screens */
+        @apply mx-32; /* adjust the margins as needed for large screens */
       }
     }
 

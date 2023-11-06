@@ -9,7 +9,14 @@ export default {
     "./error.vue",
   ],
   theme: {
-    extend: {},
+    fontFamily:{
+      'display': ['Hellix','Helvetica','Oswald']
+    },
+    extend: {
+      text:{
+        display: '40px'
+      }
+    },
   },
   plugins: [],
 }
