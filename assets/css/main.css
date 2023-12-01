@@ -14,8 +14,6 @@
       );
       background-size: calc(100%/4) 100%; /* Creates 12 equal width columns */
       background-repeat: repeat-x;
-      pointer-events: none;
-      z-index: 1;
     }
 
     /* Ensuring all other content will appear above the lines */
@@ -47,5 +45,15 @@
         @apply mx-32; /* adjust the margins as needed for large screens */
       }
     }
+
+}
+
+@layer components {
+  .glass-card{
+    border-radius: 0.25rem;
+    border: 1px solid rgba(252, 252, 252, 0.50);
+    background: linear-gradient(132deg, rgba(10, 8, 5, 0.50) 2.32%, rgba(90, 85, 75, 0.20) 101.48%);
+    backdrop-filter: blur(5px);
+  }
 
 }
