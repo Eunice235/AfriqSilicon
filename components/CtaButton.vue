@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <a style="--clr: #7808d0" class="button" href="#">
+  <a class="button" href="#">
      <slot>Action</slot>
       <span class="button__icon-wrapper">
           <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
@@ -17,21 +17,21 @@
 
 <style scoped lang="scss">
 .button {
+  border: 1px solid transparent;
   line-height: 1;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: .75rem;
-  background-color: var(--clr);
-  color: #fff;
+  background-color: white;
+  color: black;
   border-radius: 10rem;
   font-weight: 600;
-  padding: .75rem 1.5rem;
-  padding-left: 20px;
+  padding: .75rem 1.5rem .75rem 20px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: background-color .3s;
+  transition: all .3s;
 }
 
 .button__icon-wrapper {
@@ -48,7 +48,9 @@
 }
 
 .button:hover {
-  @apply bg-white text-black;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
   .button__icon-wrapper{
     @apply bg-slate-200
   }

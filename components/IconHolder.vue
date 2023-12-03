@@ -2,16 +2,22 @@
   <div class="relative" :style="`filter: drop-shadow(8px 8px 16px ${props.shadow});`">
       <span class="absolute grow-0 shrink-0 rounded-full -translate-x-1 -translate-y-1 icon-holder-bg" :class="size" :style="`background: linear-gradient(180deg, ${props.gradientStops.start} 0%, ${props.gradientStops.stop} 100%);`" />
       <span class="-translate-x-3 translate-y-1 absolute grid place-content-center grow-0 shrink-0 rounded-full glass-icon-holder text-black" :class="size">
-        <slot>K</slot>
+        <n-icon size="30">
+          <svg v-html="code"></svg>
+        </n-icon>
+
       </span>
     </div>
 </template>
 
 <script lang="ts" setup>
+import {NIcon} from "naive-ui";
+
 const props = defineProps({
   gradientStops:{type:Object, default:{start:'#EC7D43', stop:'#C05D2A'}},
   shadow:{type:String, default: '#EC7D4380'},
-  size:{type:String, default: 'h-20 w-20'}
+  size:{type:String, default: 'h-20 w-20'},
+  code:{type:String, required: true}
 })
 </script>
 

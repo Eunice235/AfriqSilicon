@@ -13,6 +13,14 @@ export default {
       'display': ['Hellix','Helvetica','Oswald']
     },
     extend: {
+      fontFamily: {
+        hellix: 'Hellix'
+      },
+      colors:{
+        brand:{
+          rose: "#FF5353"
+        }
+      },
       text:{
         display: '40px'
       }

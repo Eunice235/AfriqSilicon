@@ -4,12 +4,13 @@
 
 @layer base{
     /* The main container that will hold the lines */
-    html {
+    body {
       @apply bg-black h-full text-white overflow-x-clip;
       position: relative;
       width: 100%;
+      min-height: 100%;
       background-image: linear-gradient(to right,
-      rgba(58, 63, 68, 0.5) 1px,
+      rgba(58, 63, 68, 0.5) 2px,
         transparent 1px
       );
       background-size: calc(100%/4) 100%; /* Creates 12 equal width columns */
@@ -17,7 +18,7 @@
     }
 
     /* Ensuring all other content will appear above the lines */
-    body {
+    main {
       @apply mx-4;
        position: relative;
         z-index: 2; /* Ensure that content is above the lines */
@@ -26,22 +27,22 @@
 
     /* Medium screens (e.g., tablets) */
     @media screen and (min-width: 768px) {
-      html {
+      body {
         /* Adjust to 6 equal columns */
         background-size: calc(100%/6) 100%;
       }
-      body {
+      main {
         @apply mx-8; /* adjust the margins as needed for medium screens */
       }
     }
 
     /* Large screens */
     @media screen and (min-width: 1024px) {
-        html {
+        body {
             /* Adjust to 6 equal columns */
             background-size: calc(100%/12) 100%;
           }
-      body {
+      main {
         @apply mx-32; /* adjust the margins as needed for large screens */
       }
     }
@@ -53,6 +54,12 @@
     border-radius: 0.25rem;
     border: 1px solid rgba(252, 252, 252, 0.50);
     background: linear-gradient(132deg, rgba(10, 8, 5, 0.50) 2.32%, rgba(90, 85, 75, 0.20) 101.48%);
+    backdrop-filter: blur(5px);
+  }
+  .glass-card-light{
+    border-radius: 0.25rem;
+    border: 1px solid rgba(252, 252, 252, 0.50);
+    background: linear-gradient(132deg, rgba(241, 217, 185, 0.38) 2.32%, rgba(245, 233, 213, 0.45) 101.48%);
     backdrop-filter: blur(5px);
   }
 
