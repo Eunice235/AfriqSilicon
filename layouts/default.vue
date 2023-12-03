@@ -288,6 +288,10 @@ const why_choose_us = [
       </div>
     </section>
 
+    <section class="my-32">
+      <ProjectsPreview />
+    </section>
+
     <slot />
   </main>
 </template>
