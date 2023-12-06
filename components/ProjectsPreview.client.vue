@@ -142,7 +142,7 @@ const category_projects = computed(() => {
 
 <template>
 <div>
-  <h2 class="font-hellix font-bold text-6xl">
+  <h2 class="">
     Projects We've Worked On
   </h2>
   <p class="text-lg mt-6">We have enjoyed working on a variety on software solutions. In the process, we have refined our approach and skillset to the best.</p>

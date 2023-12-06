@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <a class="button" href="#">
+  <a class="button py-2 px-3" href="#">
      <slot>Action</slot>
       <span class="button__icon-wrapper">
           <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
@@ -27,7 +27,6 @@
   color: black;
   border-radius: 10rem;
   font-weight: 600;
-  padding: .75rem 1.5rem .75rem 20px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -40,7 +39,7 @@
   height: 25px;
   position: relative;
   color: var(--clr);
-  background-color: #fff;
+  background-color: #e5e5e5;
   border-radius: 50%;
   display: grid;
   place-items: center;

@@ -22,7 +22,6 @@
       @apply mx-4;
        position: relative;
         z-index: 2; /* Ensure that content is above the lines */
-        /* Your content styles here */
     }
 
     /* Medium screens (e.g., tablets) */
@@ -47,9 +46,69 @@
       }
     }
 
+    .custom-underline {
+        @apply relative;
+    }
+
+    .custom-underline::before
+    {
+      @apply absolute h-1 bg-white left-0 rounded;
+
+      width: calc(80% - 5px);
+      content: '';
+      bottom: -6px;
+      transform: translateX(-100%);
+        opacity: 0;
+    }
+    .custom-underline:hover::before {
+      transform: translateX(0);
+        opacity: 100;
+        @apply transition-all duration-150
+    }
+
+    .custom-underline::after
+    {
+      @apply absolute h-1 bg-white right-0 w-1/5 rounded;
+
+      content: '';
+      bottom: -6px;
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    .custom-underline:hover::after {
+      transform: translateX(0);
+        opacity: 100;
+        @apply transition-all duration-150
+    }
+
+    /*Active state*/
+    .custom-underline-active {
+        @apply relative;
+    }
+    .custom-underline-active::before
+    {
+      @apply absolute h-1 bg-white left-0 rounded;
+
+      width: calc(80% - 5px);
+      content: '';
+      bottom: -6px;
+    }
+
+
+    .custom-underline-active::after
+    {
+      @apply absolute h-1 bg-white right-0 w-1/5 rounded;
+
+      content: '';
+      bottom: -6px;
+    }
+
 }
 
 @layer components {
+    h2{
+        @apply text-3xl lg:text-6xl font-hellix font-bold
+    }
   .glass-card{
     border-radius: 0.25rem;
     border: 1px solid rgba(252, 252, 252, 0.50);
@@ -62,5 +121,11 @@
     background: linear-gradient(132deg, rgba(241, 217, 185, 0.38) 2.32%, rgba(245, 233, 213, 0.45) 101.48%);
     backdrop-filter: blur(5px);
   }
-.silicon-gradient{background: linear-gradient(90deg, #F6D58C 0%, #F3BD78 31%, #EC8045 97%, #EC7D43 100%);}
+.silicon-gradient{
+    background: linear-gradient(90deg, #F6D58C 0%, #F3BD78 31%, #EC8045 97%, #EC7D43 100%);
+}
+
+#static_bar{
+    @apply invisible md:visible
+}
 }

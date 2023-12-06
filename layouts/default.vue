@@ -3,6 +3,7 @@ import NkButton from "~/components/NkButton.vue";
 import {NIcon} from 'naive-ui'
 import {CheckCircleRound} from '@vicons/material'
 import NkFooter from "~/components/NkFooter.vue";
+import Navigation from "~/components/Navigation.vue";
 
 const nkai_highlights = [
   {
@@ -183,43 +184,28 @@ const services = [
 
 <template>
   <main ref="main" class="overflow-x-visible">
-    <nav class="flex justify-between py-8">
-      <!--add blobs-->
-      <div class="absolute z-[-1] w-[300px] h-[300px] bg-amber-500 rotate-45 -inset-20 rounded-full blur-2xl opacity-80"></div>
-      <div class="absolute z-[-1] w-[300px] h-[300px] bg-green-500 rotate-45 -top-20 inset-x-20 rounded-full blur-2xl opacity-40"></div>
-      <div class="absolute z-[-1] w-[300px] h-[300px] bg-sky-500 rotate-45 -inset-4 rounded-full blur-2xl opacity-50"></div>
+    <Navigation />
 
-      <NuxtLink class="font-black text-xl tracking-wider" href="/">
-        <img class="h-20" src="~/assets/images/branding/logo.svg">
-      </NuxtLink>
-      <div class="flex items-center space-x-12">
-        <ul class="flex space-x-4 items-center">
-          <li v-for="i in 5"><NuxtLink class="hover:underline">Link {{i}}</NuxtLink></li>
-        </ul>
-
-        <button class="border py-2 px-3 rounded-full">Contact Us</button>
-      </div>
-    </nav>
-
-    <div id="hero" class="max-w-4xl h-[70vh] mx-auto grid place-content-center text-center relative mt-8">
-      <h1 class="text-8xl font-display">
-        <span class="mr-4 font-bold bg-clip-text text-transparent hero_focus_text">Empowering</span>
+    <div id="hero" class="px-4 lg:max-w-4xl h-[50vh] lg:h-[70vh] mx-auto grid place-content-center text-center relative mt-2 lg:mt-8">
+      <h1 class="text-3xl lg:text-8xl font-display">
+        <span class="mr-4 font-bold bg-clip-text text-transparent silicon-gradient">Empowering</span>
         <span class="font-thin">Innovation Through Software Excellence</span>
       </h1>
-      <h2 class="text-4xl mt-20 font-hellix font-light">
+      <h2 class="text-lg lg:text-4xl mt-8 lg:mt-20 font-hellix font-light">
         We turn visionary ideas into digital reality, Nkai Silicon empowers businesses with tailored software solutions for unparalleled success.
       </h2>
 
-      <div class="flex space-x-4 mt-12 justify-center">
-        <CtaButton>Let's Talk</CtaButton>
-        <NkButton>Explore Projects</NkButton>
+      <div class="flex lg:space-y-reverse mx-auto lg:mx-0 lg:flex-row space-x-4 mt-12 justify-center items-center w-full">
+          <CtaButton>Let's Talk</CtaButton>
+          <NkButton>Explore Projects</NkButton>
       </div>
+
 
    </div>
 
-    <div class=" my-16">
+    <div class="my-16">
       <div class="mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <h4 class="pl-8 text-lg text-slate-500">Loved by many</h4>
+        <h4 class="pl-8 text-xl text-slate-500">Loved by many</h4>
         <div class="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5 mt-4">
           <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
             <img class="h-12" src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg" alt="Tuple">
@@ -240,13 +226,13 @@ const services = [
       </div>
     </div>
 
-    <section class="mt-32 grid grid-cols-12 gap-12 relative">
+    <section class="mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 relative">
        <!--decorate-->
-      <div class="absolute z-[-1] w-[600px] h-[200px] bg-gradient-to-br from-orange-200 to-brand-rose -rotate-[35deg] top-20 left-0 rounded-full blur-3xl opacity-90"></div>
-      <div class="absolute z-[-1] w-[500px] h-[500px] bg-gradient-to-r from-yellow-200 to-rose-400 rotate-45 -bottom-40 left-[30%] rounded-full blur-2xl opacity-20"></div>
-      <div class="absolute z-[-1] w-[500px] h-[500px] bg-gradient-to-r from-purple-200 to-sky-400 rotate-45 -bottom-20 left-[60%] rounded-full blur-2xl opacity-30"></div>
+      <div class="absolute z-[-1] w-[300px] lg:w-[600px] h-[400px] bg-gradient-to-br from-orange-200 to-orange-500 -rotate-[35deg] top-20 left-0 rounded-full blur-3xl opacity-30"></div>
+      <!--<div class="absolute z-[-1] w-[200px] lg:w-[500px] h-[500px] bg-gradient-to-r from-purple-600 to-rose-400 rotate-45 -bottom-40 left-[8%] lg:left-[30%] rounded-full blur-2xl opacity-100"></div>-->
+      <div class="absolute z-[-1] w-[150px] lg:w-[500px] h-[500px] bg-gradient-to-r from-purple-200 to-sky-400 rotate-45 -bottom-20 left-[20%] lg:left-[60%] rounded-full blur-2xl opacity-30"></div>
 
-      <div id="cards" class="col-span-6 columns-1 lg:columns-2 space-y-4 relative">
+      <div id="cards" class="col-span-1 lg:col-span-6 row-start-2 lg:row-start-auto columns-1 lg:columns-2 space-y-4 relative">
         <span id="static_bar" class="absolute left-[19.3%] -top-4 h-32 w-1 bg-white rounded-full"/>
         <span id="static_bar" class="absolute left-[61.5%] -top-20 h-32 w-1 bg-white rounded-full"/>
         <span id="static_bar" class="absolute left-[61.5%] top-[450px] h-32 w-1 bg-white rounded-full"/>
@@ -262,7 +248,7 @@ const services = [
         <div class="glass-card relative flex flex-col space-y-16 py-4 px-6 break-inside-avoid" v-for="item in nkai_highlights">
           <IconHolder size="h-12 w-12" :code="item.icon" />
           <div>
-            <h3 class="font-bold">{{ item.title }}</h3>
+            <h3 class="font-bold text-lg">{{ item.title }}</h3>
             <p class="mt-1 text-sm">
               {{item.description}}
             </p>
@@ -270,8 +256,8 @@ const services = [
         </div>
 
       </div>
-      <div class="col-span-6">
-        <h2 class="font-bold text-6xl font-hellix">Who we are</h2>
+      <div class="col-span-1 lg:col-span-6 row-start-1 lg:row-start-auto">
+        <h2>Who we are</h2>
         <p class="text-slate-300 mt-2 text-lg font-regular">Turning visionary ideas into digital reality, Nkai Silicon empowers businesses with tailored software solutions for unparalleled success.</p>
 
         <div class="flex flex-col space-y-4 mt-8">
@@ -293,8 +279,8 @@ const services = [
     </section>
 
     <section class="my-32">
-      <h2 class="font-bold text-6xl font-hellix text-center">Why choose us</h2>
-      <div class="mx-auto grid grid-cols-4 divide-x divide-amber-50 mt-16">
+      <h2 class="text-center">Why choose us</h2>
+      <div class="mx-auto grid grid-cols-1 lg:grid-cols-4 divide-y lg:divide-y-0 gap-y-4 lg:divide-x divide-amber-50 mt-16">
         <div class="text-center px-4" v-for="stat in [
             {value:14, suffix:'K', description:'Projects'},
             {value:345000, suffix:'', description:'In value addition'},
@@ -308,8 +294,8 @@ const services = [
           <p class="text-lg">{{ stat.description }}</p>
         </div>
       </div>
-      <div class="grid grid-cols-3 gap-4 mt-12">
-        <div class="glass-card-light py-2 px-4 flex flex-row space-x-2" v-for="item in why_choose_us">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
+        <div class="glass-card-light py-2 px-4 flex flex-col lg:flex-row lg:space-x-2" v-for="item in why_choose_us">
           <span class="bg-white shadow-lg flex justify-center items-center h-12 w-12 grow-0 shrink-0 rounded-full">
             <NIcon size="35">
               <svg v-html="item.icon" />
@@ -320,11 +306,11 @@ const services = [
       </div>
     </section>
 
-    <section class="silicon-gradient my-32 -mx-32">
+    <section class="silicon-gradient my-32 lg:-mx-32 rounded">
         <div class="mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-32">
           <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
             <div>
-              <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              <h2>
                 We use the worlds best tools to create amazing software
               </h2>
               <p class="mt-3 max-w-3xl text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue.</p>
@@ -366,15 +352,15 @@ const services = [
     </section>
 
     <section id="services" class="my-32 relative">
-       <div class="services-blob absolute -mt-48"></div>
+       <div class="services-blob w-[10.26525rem] lg:w-[41.26525rem] h-[40.37213rem] lg:h-[91.37213rem] absolute -mt-20 lg:-mt-48"></div>
       <div class="relative">
-        <h2 class="font-bold text-6xl text-left font-hellix">
+        <h2 class="text-left">
           Our Comprehensive <br> Solutions
         </h2>
 
-        <div class="grid grid-cols-12 gap-10 -px-12 pt-10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 -px-12 pt-10">
           <div class="col-span-6" v-for="item in services">
-            <img class="h-32" :src="`/images/custom-icons/${item.icon}.svg`" :alt="item.title">
+            <img class="h-20 md:h-32" :src="`/images/custom-icons/${item.icon}.svg`" :alt="item.title">
             <h3 class="text-2xl mt-2 font-serif font-bold">{{item.title}}</h3>
             <p class="mt-2">
               {{item.description}}
@@ -396,15 +382,7 @@ const services = [
 main{
   --gradient-red-silicon: linear-gradient(90deg, #F6D58C 0%, #FFB58B 31%, #FF4141 97%, #FF5353 100%)
 }
-.hero_focus_text{
-  background: var(--gradient-red-silicon);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 .services-blob{
-  width: 41.26525rem;
-  height: 91.37213rem;
   transform: rotate(38.259deg);
   flex-shrink: 0;
   border-radius: 91.37213rem;
