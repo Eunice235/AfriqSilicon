@@ -142,12 +142,14 @@ const category_projects = computed(() => {
 
 <template>
 <div>
-  <h2 class="font-hellix font-bold text-3xl">Projects We've Worked On</h2>
-  <p class="text-lg">We have enjoyed working on a variety on software solutions. In the process, we have refined our approach and skillset to the best.</p>
+  <h2 class="font-hellix font-bold text-6xl">
+    Projects We've Worked On
+  </h2>
+  <p class="text-lg mt-6">We have enjoyed working on a variety on software solutions. In the process, we have refined our approach and skillset to the best.</p>
 
   <TabGroup as="div" class="mt-8" @change="($event) => selectedTab = $event">
       <TabList class="flex space-x-4 transition-all duration-700">
-        <Tab v-for="category in categories" v-slot="{ selected }">
+        <Tab v-for="category in categories" class="focus:outline-0" v-slot="{ selected }">
           <button
               :class="[
                   selected ? 'glass-card-light' : ''
@@ -161,7 +163,7 @@ const category_projects = computed(() => {
 
           <TabGroup as="div" class="grid grid-cols-12 gap-8 mt-8" @change="($event) => selectedProjectTab = $event">
             <TabList as="div" class="col-span-4 flex flex-col space-y-2">
-              <Tab v-for="project in category_projects" v-slot="{selected}">
+              <Tab v-for="project in category_projects" class="focus:outline-0" v-slot="{selected}">
                 <div
                     :class="[
                         selected ? 'glass-card' : 'border-transparent'

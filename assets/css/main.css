@@ -62,5 +62,5 @@
     background: linear-gradient(132deg, rgba(241, 217, 185, 0.38) 2.32%, rgba(245, 233, 213, 0.45) 101.48%);
     backdrop-filter: blur(5px);
   }
-
+.silicon-gradient{background: linear-gradient(90deg, #F6D58C 0%, #F3BD78 31%, #EC8045 97%, #EC7D43 100%);}
 }

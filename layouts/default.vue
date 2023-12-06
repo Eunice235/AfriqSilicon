@@ -2,6 +2,7 @@
 import NkButton from "~/components/NkButton.vue";
 import {NIcon} from 'naive-ui'
 import {CheckCircleRound} from '@vicons/material'
+import NkFooter from "~/components/NkFooter.vue";
 
 const nkai_highlights = [
   {
@@ -169,6 +170,15 @@ const why_choose_us = [
   },
 ]
 
+const services = [
+  {icon:'coding', title:'Discover Our Expertise in Crafting Tailored Applications', description:'Our Application Development Services encompass the end-to-end process of creating software solutions customized to your unique needs. From conceptualization to deployment, we transform ideas into functional, user-friendly applications that drive your business forward', link:'#'},
+  {icon:'ops', title:'Infrastructure Architecture and Orchestration', description:'We empower your organization with robust, scalable, and seamlessly orchestrated IT environments. We design and implement the backbone of your technology infrastructure to ensure optimal performance, security, and adaptability.', link:'#'},
+  {icon:'ux', title:'Elevating User Experiences to the Extraordinary', description:'At Nkai Silicon, we are committed to crafting exceptional UI/UX designs that captivate, engage, and delight users. Our design experts combine aesthetics with usability to create digital experiences that leave a lasting impression.', link:'#'},
+  {icon:'restore', title:'Restoring Projects to Success', description:'We rescue your projects from setbacks with our dedicated Project Rescuing and Bug Fixing services. Our expert team swiftly identifies and resolves issues, ensuring your software functions flawlessly, on time and within budget.', link:'#'},
+  {icon:'taas', title:'Unlock the Power of Team as a Service', description:'Discover the flexibility and expertise of our Team as a Service. Our agile, dedicated professionals seamlessly integrate with your projects, offering a dynamic extension to your team for unparalleled success.', link:'#'},
+  {icon:'consultancy', title:'Strategic Consultancy for Digital Transformation', description:'Elevate your business with our consultancy services. We offer strategic insights and expertise to drive your digital transformation journey, ensuring a competitive edge in the ever-evolving landscape.', link:'#'},
+]
+
 </script>
 
 <template>
@@ -191,13 +201,13 @@ const why_choose_us = [
       </div>
     </nav>
 
-    <div id="hero" class="max-w-4xl h-[70vh] mx-auto grid place-content-center text-center relative">
-      <h1 class="text-7xl font-display">
+    <div id="hero" class="max-w-4xl h-[70vh] mx-auto grid place-content-center text-center relative mt-8">
+      <h1 class="text-8xl font-display">
         <span class="mr-4 font-bold bg-clip-text text-transparent hero_focus_text">Empowering</span>
         <span class="font-thin">Innovation Through Software Excellence</span>
       </h1>
       <h2 class="text-4xl mt-20 font-hellix font-light">
-        We turning visionary ideas into digital reality, Nkai Silicon empowers businesses with tailored software solutions for unparalleled success.
+        We turn visionary ideas into digital reality, Nkai Silicon empowers businesses with tailored software solutions for unparalleled success.
       </h2>
 
       <div class="flex space-x-4 mt-12 justify-center">
@@ -207,6 +217,28 @@ const why_choose_us = [
 
    </div>
 
+    <div class=" my-16">
+      <div class="mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <h4 class="pl-8 text-lg text-slate-500">Loved by many</h4>
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5 mt-4">
+          <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+            <img class="h-12" src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg" alt="Tuple">
+          </div>
+          <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+            <img class="h-12" src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg" alt="Mirage">
+          </div>
+          <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
+            <img class="h-12" src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg" alt="StaticKit">
+          </div>
+          <div class="col-span-1 flex justify-center md:col-span-3 lg:col-span-1">
+            <img class="h-12" src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg" alt="Transistor">
+          </div>
+          <div class="col-span-2 flex justify-center md:col-span-3 lg:col-span-1">
+            <img class="h-12" src="https://tailwindui.com/img/logos/workcation-logo-gray-400.svg" alt="Workcation">
+          </div>
+        </div>
+      </div>
+    </div>
 
     <section class="mt-32 grid grid-cols-12 gap-12 relative">
        <!--decorate-->
@@ -239,7 +271,7 @@ const why_choose_us = [
 
       </div>
       <div class="col-span-6">
-        <h2 class="font-bold text-3xl font-hellix">Who we are</h2>
+        <h2 class="font-bold text-6xl font-hellix">Who we are</h2>
         <p class="text-slate-300 mt-2 text-lg font-regular">Turning visionary ideas into digital reality, Nkai Silicon empowers businesses with tailored software solutions for unparalleled success.</p>
 
         <div class="flex flex-col space-y-4 mt-8">
@@ -261,7 +293,7 @@ const why_choose_us = [
     </section>
 
     <section class="my-32">
-      <h2 class="font-bold text-3xl font-hellix text-center">Why choose us</h2>
+      <h2 class="font-bold text-6xl font-hellix text-center">Why choose us</h2>
       <div class="mx-auto grid grid-cols-4 divide-x divide-amber-50 mt-16">
         <div class="text-center px-4" v-for="stat in [
             {value:14, suffix:'K', description:'Projects'},
@@ -288,12 +320,76 @@ const why_choose_us = [
       </div>
     </section>
 
+    <section class="silicon-gradient my-32 -mx-32">
+        <div class="mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-32">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+            <div>
+              <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                We use the worlds best tools to create amazing software
+              </h2>
+              <p class="mt-3 max-w-3xl text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue.</p>
+              <div class="mt-8 sm:flex">
+                <div class="rounded-md shadow">
+                  <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"> Create Account </a>
+                </div>
+                <div class="mt-3 sm:mt-0 sm:ml-3">
+                  <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200"> Contact Us </a>
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
+              <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                <img class="max-h-12" src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg" alt="Workcation">
+              </div>
+              <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                <img class="max-h-12" src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg" alt="Mirage">
+              </div>
+              <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                <img class="max-h-12" src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg" alt="Tuple">
+              </div>
+              <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                <img class="max-h-12" src="https://tailwindui.com/img/logos/laravel-logo-gray-400.svg" alt="Laravel">
+              </div>
+              <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                <img class="max-h-12" src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg" alt="StaticKit">
+              </div>
+              <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+                <img class="max-h-12" src="https://tailwindui.com/img/logos/statamic-logo-gray-400.svg" alt="Statamic">
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
     <section class="my-32">
       <ProjectsPreview />
     </section>
 
+    <section id="services" class="my-32 relative">
+       <div class="services-blob absolute -mt-48"></div>
+      <div class="relative">
+        <h2 class="font-bold text-6xl text-left font-hellix">
+          Our Comprehensive <br> Solutions
+        </h2>
+
+        <div class="grid grid-cols-12 gap-10 -px-12 pt-10">
+          <div class="col-span-6" v-for="item in services">
+            <img class="h-32" :src="`/images/custom-icons/${item.icon}.svg`" :alt="item.title">
+            <h3 class="text-2xl mt-2 font-serif font-bold">{{item.title}}</h3>
+            <p class="mt-2">
+              {{item.description}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Cta />
+
     <slot />
   </main>
+
+  <NkFooter />
 </template>
 
 <style scoped>
@@ -305,6 +401,15 @@ main{
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.services-blob{
+  width: 41.26525rem;
+  height: 91.37213rem;
+  transform: rotate(38.259deg);
+  flex-shrink: 0;
+  border-radius: 91.37213rem;
+  background: linear-gradient(180deg, #0F3B57 0%, #F3BD78 100%);
+  filter: blur(159.5px);
 }
 
 </style>
