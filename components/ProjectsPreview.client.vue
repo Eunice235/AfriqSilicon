@@ -148,20 +148,20 @@ const category_projects = computed(() => {
   <p class="text-lg mt-6">We have enjoyed working on a variety on software solutions. In the process, we have refined our approach and skillset to the best.</p>
 
   <TabGroup as="div" class="mt-8" @change="($event) => selectedTab = $event">
-      <TabList class="flex space-x-4 transition-all duration-700">
+      <TabList class="flex space-x-4 transition-all duration-700 overflow-x-auto">
         <Tab v-for="category in categories" class="focus:outline-0" v-slot="{ selected }">
           <button
               :class="[
                   selected ? 'glass-card-light' : ''
               ]"
-              class="p-1 font-semibold">{{category.name}}</button>
+              class="p-1 font-semibold whitespace-nowrap">{{category.name}}</button>
         </Tab>
       </TabList>
     <TabPanels>
       <template v-for="category in categories">
         <TabPanel>
 
-          <TabGroup as="div" class="grid grid-cols-12 gap-8 mt-8" @change="($event) => selectedProjectTab = $event">
+          <TabGroup as="div" class="hidden lg:grid grid-cols-12 gap-8 mt-8" @change="($event) => selectedProjectTab = $event">
             <TabList as="div" class="col-span-4 flex flex-col space-y-2">
               <Tab v-for="project in category_projects" class="focus:outline-0" v-slot="{selected}">
                 <div
@@ -205,6 +205,19 @@ const category_projects = computed(() => {
               </template>
             </TabPanels>
           </TabGroup>
+
+          <div class="lg:hidden mt-8 flex flex-col space-y-2">
+            <div class="flex flex-row items-start space-x-2" v-for="project in category_projects">
+              <div class="w-[100px] h-[100px] bg-red-400"></div>
+              <div>
+                <h4 class="font-semibold text-[16px]">{{project.title}}</h4>
+                <p class="text-sm text-slate-400 mt-1">{{project.description.slice(0,80)}}</p>
+                <div class="bg-slate-200/30 w-fit px-2 py-1 text-xs mt-4 rounded-full">
+                  <span>November, 2021 - January, 2022</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </TabPanel>
       </template>

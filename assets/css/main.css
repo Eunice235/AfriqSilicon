@@ -126,6 +126,6 @@
 }
 
 #static_bar{
-    @apply invisible md:visible
+    @apply invisible lg:visible
 }
 }

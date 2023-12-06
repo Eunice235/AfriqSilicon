@@ -186,8 +186,8 @@ const services = [
   <main ref="main" class="overflow-x-visible">
     <Navigation />
 
-    <div id="hero" class="px-4 lg:max-w-4xl h-[50vh] lg:h-[70vh] mx-auto grid place-content-center text-center relative mt-2 lg:mt-8">
-      <h1 class="text-3xl lg:text-8xl font-display">
+    <div id="hero" class="px-4 lg:max-w-4xl h-[50vh] md:h-[30vh] lg:h-[70vh] mx-auto grid place-content-center text-center relative mt-2 lg:mt-8">
+      <h1 class="text-3xl md:text-5xl lg:text-8xl font-display">
         <span class="mr-4 font-bold bg-clip-text text-transparent silicon-gradient">Empowering</span>
         <span class="font-thin">Innovation Through Software Excellence</span>
       </h1>
@@ -232,7 +232,7 @@ const services = [
       <!--<div class="absolute z-[-1] w-[200px] lg:w-[500px] h-[500px] bg-gradient-to-r from-purple-600 to-rose-400 rotate-45 -bottom-40 left-[8%] lg:left-[30%] rounded-full blur-2xl opacity-100"></div>-->
       <div class="absolute z-[-1] w-[150px] lg:w-[500px] h-[500px] bg-gradient-to-r from-purple-200 to-sky-400 rotate-45 -bottom-20 left-[20%] lg:left-[60%] rounded-full blur-2xl opacity-30"></div>
 
-      <div id="cards" class="col-span-1 lg:col-span-6 row-start-2 lg:row-start-auto columns-1 lg:columns-2 space-y-4 relative">
+      <div id="cards" class="col-span-1 lg:col-span-6 row-start-2 lg:row-start-auto columns-1 md:columns-2 space-y-4 relative">
         <span id="static_bar" class="absolute left-[19.3%] -top-4 h-32 w-1 bg-white rounded-full"/>
         <span id="static_bar" class="absolute left-[61.5%] -top-20 h-32 w-1 bg-white rounded-full"/>
         <span id="static_bar" class="absolute left-[61.5%] top-[450px] h-32 w-1 bg-white rounded-full"/>
@@ -280,7 +280,7 @@ const services = [
 
     <section class="my-32">
       <h2 class="text-center">Why choose us</h2>
-      <div class="mx-auto grid grid-cols-1 lg:grid-cols-4 divide-y lg:divide-y-0 gap-y-4 lg:divide-x divide-amber-50 mt-16">
+      <div class="mx-auto grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 gap-y-4 md:divide-x divide-amber-50 mt-16">
         <div class="text-center px-4" v-for="stat in [
             {value:14, suffix:'K', description:'Projects'},
             {value:345000, suffix:'', description:'In value addition'},
@@ -308,22 +308,19 @@ const services = [
 
     <section class="silicon-gradient my-32 lg:-mx-32 rounded">
         <div class="mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-32">
-          <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
-            <div>
-              <h2>
-                We use the worlds best tools to create amazing software
+          <div class="lg:grid lg:grid-cols-12 lg:gap-8 lg:items-center">
+            <div class="col-span-7">
+              <h2 class="text-slate-800">
+                Expertise in Advanced Technology Solutions
               </h2>
-              <p class="mt-3 max-w-3xl text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue.</p>
-              <div class="mt-8 sm:flex">
-                <div class="rounded-md shadow">
-                  <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"> Create Account </a>
-                </div>
-                <div class="mt-3 sm:mt-0 sm:ml-3">
-                  <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200"> Contact Us </a>
-                </div>
+              <p class="mt-3 max-w-3xl text-lg text-gray-600">
+                At Nkai Silicon, we are committed to leveraging an elite toolset to architect scalable, real-world solutions for your business needs. Our expertise extends beyond just utilizing these tools; we have attained a level of mastery that ensures reliability and efficiency in our development processes. This proficiency in a comprehensive suite of technologies enables us to deliver robust, innovative solutions that drive growth and success for our clients. Trust us to be the technical partners who bring your visionary projects to life with precision and excellence.
+              </p>
+              <div class="mt-8 sm:flex space-x-4">
+                 <CtaButton>Schedule a Session</CtaButton>
               </div>
             </div>
-            <div class="mt-8 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
+            <div class="col-span-5 mt-8 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
               <div class="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
                 <img class="max-h-12" src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg" alt="Workcation">
               </div>
