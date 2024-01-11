@@ -1,6 +1,20 @@
 <script setup lang="ts">
 import {TabGroup, TabList, Tab, TabPanel, TabPanels} from "@headlessui/vue";
 
+interface ProjectImage {name: string; file_url:string}
+interface ProjectTag {name: string;}
+interface Project {
+    id: string;
+    title: string;
+    description: string;
+    category: string;
+    image: ProjectImage;
+    company_logo: ProjectImage;
+    date_range: string;
+    more_images: ProjectImage[];
+    tags: ProjectTag[];
+}
+
 const categories = ref([
   {name:'Fintech', key:'fintech'},
   {name:'E-commerce', key:'e-commerce'},
@@ -10,6 +24,7 @@ const categories = ref([
 ])
 
 const selectedTab = ref(0)
+const processing = ref(true)
 const selectedProjectTab = ref(0)
 
 const projects = ref([
@@ -136,8 +151,22 @@ const projects = ref([
 ])
 
 const category_projects = computed(() => {
-  return projects.value.filter((project) => project.category.toLowerCase() === categories.value[selectedTab.value].key)
+  return projects.value.length ?
+      projects.value.filter((project) => project.category.toLowerCase() === categories.value[selectedTab.value].key)
+      : []
 })
+onMounted(() => {
+  $fetch('/api/projects')
+      .then((data) => {
+        console.log('>>>>>> projects fetched >>>>>', data)
+        projects.value = data
+      })
+      .catch((error) => {
+        console.log('>>>>>> projects error >>>>>', error)
+      })
+      .finally(() => processing.value = false)
+})
+
 </script>
 
 <template>

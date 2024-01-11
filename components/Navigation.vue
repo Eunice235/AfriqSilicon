@@ -4,9 +4,8 @@ import {MenuRound, CloseRound} from '@vicons/material'
 import {ref} from "vue";
 
 let navs = [
-    {name:'About Us', link:'#', target:'_self' },
-    {name:'Services', link:'#', target:'_self'},
-    {name:'Contact Us', link:'#', target:'_self', },
+    {name:'About Us', link:'/#about-us', target:'_self' },
+    {name:'Services', link:'/#services', target:'_self'},
     {name:'Blog', link:'#', target:'_self', },
 ]
 const showMobileMenu = ref(true)
@@ -27,7 +26,7 @@ const toggleMobile = () => {
   <div class="absolute z-[-1] w-[300px] h-[300px] bg-sky-500 rotate-45 -inset-4 rounded-full blur-2xl opacity-50"></div>
 
   <NuxtLink class="font-black tracking-wider" href="/">
-    <img class="h-14 md:h-18 lg:h-20" src="~/assets/images/branding/logo.svg" alt="Nkai Silicon">
+    <img class="h-14 md:h-18 lg:h-20" src="~/assets/images/branding/logo.svg" alt="Afriq Silicon">
   </NuxtLink>
   <div class="hidden md:flex items-center space-x-12">
     <ul class="flex space-x-4 items-center">
@@ -42,8 +41,8 @@ const toggleMobile = () => {
     </ul>
 
     <div class="flex space-x-2">
-      <button class="py-2 px-4 rounded-full hover:bg-white/30 focus:ring-1 focus:ring-white/20">Login</button>
-      <button class="border py-2 px-3 rounded-full">Contact Us</button>
+      <a href="https://www.portal.afriqsilicon.com/" target="_blank" class="py-2 px-4 rounded-full hover:bg-white/30 focus:ring-1 focus:ring-white/20">Login</a>
+      <a href="/contact-us" class="border py-2 px-3 rounded-full">Contact Us</a>
     </div>
   </div>
   <PopoverButton class="md:hidden bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500">
@@ -59,7 +58,7 @@ const toggleMobile = () => {
             <div class="pt-5 pb-6 px-5">
               <div class="flex items-center justify-between">
                 <div>
-                  <img class="h-12 w-auto" src="~/assets/images/branding/logo-dark.svg" alt="Nkai Silicon" />
+                  <img class="h-12 w-auto" src="~/assets/images/branding/logo-dark.svg" alt="Afriq Silicon" />
                 </div>
                 <div class="-mr-2">
                   <PopoverButton class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500">
@@ -84,10 +83,10 @@ const toggleMobile = () => {
                 <NuxtLink href="#" class="text-base font-medium text-gray-900 hover:text-gray-700"> Company </NuxtLink>
               </div>
               <div class="mt-6">
-                <NuxtLink href="#" class="w-full flex items-center justify-center silicon-gradient bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-black hover:from-purple-700 hover:to-orange-700"> Contact us </NuxtLink>
+                <NuxtLink href="/contact-us" class="w-full flex items-center justify-center silicon-gradient bg-origin-border px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-black hover:from-purple-700 hover:to-orange-700"> Contact us </NuxtLink>
                 <p class="mt-6 text-center text-base font-medium text-gray-500">
                   Existing client?
-                  <NuxtLink href="#" class="text-gray-900"> Sign in </NuxtLink>
+                  <NuxtLink href="https://www.portal.afriqsilicon.com/" target="_blank" class="text-gray-900"> Sign in </NuxtLink>
                 </p>
               </div>
             </div>

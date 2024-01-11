@@ -10,7 +10,7 @@
       width: 100%;
       min-height: 100%;
       background-image: linear-gradient(to right,
-      rgba(58, 63, 68, 0.5) 2px,
+      rgba(58, 63, 68, 0.3) 2px,
         transparent 1px
       );
       background-size: calc(100%/4) 100%; /* Creates 12 equal width columns */
