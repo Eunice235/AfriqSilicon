@@ -45,7 +45,7 @@ import {NIcon} from "naive-ui"
               class="rounded"
               src="https://www.portal.afriqsilicon.com/forms/wtl/c6581093f31b5282aa1774fad338895b"
               frameborder="0"
-              sandbox="allow-top-navigation allow-forms allow-same-origin allow-popups"
+              sandbox="allow-top-navigation allow-forms allow-same-origin allow-scripts allow-popups"
               allowfullscreen></iframe>
     </div>
 
