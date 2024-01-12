@@ -24,6 +24,7 @@
   background: #F3BD78;
   mix-blend-mode: lighten;
   filter: blur(75px);
+  animation: 3s 1s alternate infinite random_motion;
 }
 .cta-blob-2{
   flex-shrink: 0;
@@ -31,6 +32,8 @@
   background: #9D7BE7;
   mix-blend-mode: lighten;
   filter: blur(75px);
+  animation: 3s 1s alternate infinite random_motion;
+  animation-delay: 1.4s;
 }
 .cta-blob-3{
   flex-shrink: 0;
@@ -38,5 +41,24 @@
   background: #EC7D43;
   mix-blend-mode: lighten;
   filter: blur(75px);
+  animation: 3s 1s alternate infinite random_motion;
+  animation-delay: 1.8s;
+}
+
+.cta-blob-1, .cta-blob-2,
+.cta-blob-3{
+  animation-duration: 10000ms;
+  animation-timing-function: ease-in;
+}
+
+@keyframes random_motion {
+  0%,100%{
+    transform: translate3d(0,6em,0);
+    opacity: 0.5
+  }
+  50%{
+    transform: translate3d(0,-6em,0);
+    opacity: 1
+  }
 }
 </style>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger"
 import NkButton from "~/components/NkButton.vue";
 import {NIcon} from 'naive-ui'
 import {CheckCircleRound} from '@vicons/material'
@@ -177,6 +179,36 @@ const services = [
   {icon:'taas', title:'Unlock the Power of Team as a Service', description:'Discover the flexibility and expertise of our Team as a Service. Our agile, dedicated professionals seamlessly integrate with your projects, offering a dynamic extension to your team for unparalleled success.', link:'#'},
   {icon:'consultancy', title:'Strategic Consultancy for Digital Transformation', description:'Elevate your business with our consultancy services. We offer strategic insights and expertise to drive your digital transformation journey, ensuring a competitive edge in the ever-evolving landscape.', link:'#'},
 ]
+
+onMounted(() => {
+  console.log('Index page mounted>>>>>>')
+   gsap.registerPlugin(ScrollTrigger);
+
+  const serviceElements = document.querySelectorAll('#service');
+  let inner_elements:any[] = []
+  // Function to create the slide-fade animation
+  serviceElements.forEach(service => {
+    for (const child of service.children) {
+      inner_elements.push(child)
+    }
+  })
+    const tl = gsap.timeline()
+
+    tl.to(gsap.utils.toArray(inner_elements), {
+      y: 0,
+      opacity: 1,
+      duration:10000,
+      scrollTrigger: {
+        start: 'top',
+        toggleActions: 'play complete none reset',
+      },
+      stagger: {
+        each: 0.2,
+        from: "end",
+      }, // Adjust the stagger value as needed
+    })
+
+})
 </script>
 
 <template>
@@ -250,7 +282,7 @@ const services = [
         </div>
 
       </div>
-      <div class="col-span-1 lg:col-span-6 row-start-1 lg:row-start-auto">
+      <div id="about-us" class="col-span-1 lg:col-span-6 row-start-1 lg:row-start-auto">
         <h2>Who we are</h2>
         <p class="text-slate-300 mt-2 text-lg font-regular">Turning visionary ideas into digital reality, Afriq Silicon empowers businesses with tailored software solutions for unparalleled success.</p>
 
@@ -350,10 +382,10 @@ const services = [
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-10 -px-12 pt-10">
-          <div class="col-span-6" v-for="item in services">
-            <img class="h-20 md:h-32" :src="`/images/custom-icons/${item.icon}.svg`" :alt="item.title">
-            <h3 class="text-2xl mt-2 font-serif font-bold">{{item.title}}</h3>
-            <p class="mt-2">
+          <div id="service" class="col-span-6" v-for="item in services">
+            <img id="service-icon" class="h-20 md:h-32" :src="`/images/custom-icons/${item.icon}.svg`" :alt="item.title">
+            <h3 id="service-title" class="text-2xl mt-2 font-serif font-bold">{{item.title}}</h3>
+            <p class="mt-2" id="service-description">
               {{item.description}}
             </p>
           </div>
@@ -372,5 +404,13 @@ const services = [
   border-radius: 91.37213rem;
   background: linear-gradient(180deg, #0F3B57 0%, #F3BD78 100%);
   filter: blur(159.5px);
+}
+
+#service > #service-icon,
+#service > #service-title,
+#service > #service-description{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
 }
 </style>

@@ -4,13 +4,24 @@ import {MenuRound, CloseRound} from '@vicons/material'
 import {ref} from "vue";
 
 let navs = [
-    {name:'About Us', link:'/#about-us', target:'_self' },
-    {name:'Services', link:'/#services', target:'_self'},
-    {name:'Blog', link:'#', target:'_self', },
+    {name:'About Us', isPageLink: false, link:'#about-us', target:'_self' },
+    {name:'Services', isPageLink: false, link:'#services', target:'_self'},
+    {name:'Blog', isPageLink: false, link:'#', target:'_self', },
 ]
 const showMobileMenu = ref(true)
 const toggleMobile = () => {
   showMobileMenu.value = !showMobileMenu.value
+}
+
+function smoothScroll(e) {
+  e.preventDefault();
+  const targetId = e.target.getAttribute("href");
+  const targetElement = document.querySelector(targetId);
+  console.log('target: ', targetElement)
+
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: "smooth", });
+  }
 }
 
 </script>
@@ -31,12 +42,20 @@ const toggleMobile = () => {
   <div class="hidden md:flex items-center space-x-12">
     <ul class="flex space-x-4 items-center">
       <li v-for="nav in navs">
-        <NuxtLink :href="nav.link" :class="[
-          $route.path === nav.link ? 'custom-underline-active' : 'custom-underline'
-          ] "
-          class="transition-all text-lg">
-          {{nav.name}}
-        </NuxtLink>
+          <NuxtLink v-if="nav.isPageLink" :href="nav.link" :class="[
+            $route.path === nav.link ? 'custom-underline-active' : 'custom-underline'
+            ] "
+            class="transition-all text-lg">
+            {{nav.name}}
+          </NuxtLink>
+
+          <NuxtLink @click="smoothScroll" :href="nav.link" v-else :class="[
+            $route.path === nav.link ? 'custom-underline-active' : 'custom-underline'
+            ] "
+            class="transition-all text-lg">
+            {{nav.name}}
+          </NuxtLink>
+
       </li>
     </ul>
 
