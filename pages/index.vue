@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import gsap from "gsap"
-import ScrollTrigger from "gsap/ScrollTrigger"
 import NkButton from "~/components/NkButton.vue";
 import {NIcon} from 'naive-ui'
-import {CheckCircleRound} from '@vicons/material'
 
 const nkai_highlights = [
   {
@@ -181,8 +178,9 @@ const services = [
 ]
 
 onMounted(() => {
+  const { $gsap, scrollTrigger } = useNuxtApp()
+
   console.log('Index page mounted>>>>>>')
-   gsap.registerPlugin(ScrollTrigger);
 
   const serviceElements = document.querySelectorAll('#service');
   let inner_elements:any[] = []
@@ -192,15 +190,21 @@ onMounted(() => {
       inner_elements.push(child)
     }
   })
-    const tl = gsap.timeline()
+  console.log('inner_elements', $gsap.utils.toArray(inner_elements))
+    const tl = $gsap.timeline({markers: true})
 
-    tl.to(gsap.utils.toArray(inner_elements), {
+  tl.from($gsap.utils.toArray(inner_elements), {
+      y: 10,
+      opacity: 0,
+      stagger: 0.2,
+    })
+
+  tl.to($gsap.utils.toArray(inner_elements), {
       y: 0,
       opacity: 1,
-      duration:10000,
       scrollTrigger: {
-        start: 'top',
-        toggleActions: 'play complete none reset',
+        start: 'bottom',
+        // toggleActions: 'play complete none reset',
       },
       stagger: {
         each: 0.2,
@@ -292,9 +296,9 @@ onMounted(() => {
               {title:'Customization', description:'Our approach is highly personalized, ensuring that each client receives tailored software solutions that align precisely with their unique needs and objectives.'},
               {title:'Business Empowerment', description:'We measure our success by the success of our clients, aiming to provide software that not only meets but surpasses their expectations, ultimately leading to unparalleled business achievements.'},
           ]">
-            <NIcon size="24">
-              <CheckCircleRound />
-            </NIcon>
+             <NIcon size="28">
+               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="currentColor" d="M173.66 98.34a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0M232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104m-16 0a88 88 0 1 0-88 88a88.1 88.1 0 0 0 88-88"/></svg>
+             </NIcon>
             <div>
               <h4 class="font-semibold text-lg">{{ item.title }}</h4>
               <p class="text-slate-300 mt-1 text-sm">{{item.description}}</p>

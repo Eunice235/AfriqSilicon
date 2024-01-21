@@ -5,7 +5,7 @@
 @layer base{
     /* The main container that will hold the lines */
     body {
-      @apply bg-black h-full text-white overflow-x-clip;
+      @apply !bg-black h-full text-white overflow-x-clip;
       position: relative;
       width: 100%;
       min-height: 100%;

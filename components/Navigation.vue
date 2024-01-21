@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue'
-import {MenuRound, CloseRound} from '@vicons/material'
 import {ref} from "vue";
 
 let navs = [
@@ -66,7 +65,7 @@ function smoothScroll(e) {
   </div>
   <PopoverButton class="md:hidden bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500">
       <span class="sr-only">Open menu</span>
-      <MenuRound class="h-6 w-6" aria-hidden="true" />
+      <NaiveIcon name="ph:list" :size="24" />
     </PopoverButton>
 </nav>
 
@@ -82,7 +81,7 @@ function smoothScroll(e) {
                 <div class="-mr-2">
                   <PopoverButton class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500">
                     <span class="sr-only">Close menu</span>
-                    <CloseRound class="h-6 w-6" aria-hidden="true" />
+                    <NaiveIcon name="ph:x-bold" :size="24" />
                   </PopoverButton>
                 </div>
               </div>

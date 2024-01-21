@@ -156,15 +156,15 @@ const category_projects = computed(() => {
       : []
 })
 onMounted(() => {
-  $fetch('/api/projects')
-      .then((data) => {
-        console.log('>>>>>> projects fetched >>>>>', data)
-        projects.value = data
-      })
-      .catch((error) => {
-        console.log('>>>>>> projects error >>>>>', error)
-      })
-      .finally(() => processing.value = false)
+  // $fetch('/api/projects')
+  //     .then((data) => {
+  //       console.log('>>>>>> projects fetched >>>>>', data)
+  //       projects.value = data
+  //     })
+  //     .catch((error) => {
+  //       console.log('>>>>>> projects error >>>>>', error)
+  //     })
+  //     .finally(() => processing.value = false)
 })
 
 </script>
