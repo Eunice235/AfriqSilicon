@@ -177,42 +177,40 @@ const services = [
   {icon:'consultancy', title:'Strategic Consultancy for Digital Transformation', description:'Elevate your business with our consultancy services. We offer strategic insights and expertise to drive your digital transformation journey, ensuring a competitive edge in the ever-evolving landscape.', link:'#'},
 ]
 
-onMounted(() => {
-  const { $gsap, scrollTrigger } = useNuxtApp()
-
-  console.log('Index page mounted>>>>>>')
-
-  const serviceElements = document.querySelectorAll('#service');
-  let inner_elements:any[] = []
-  // Function to create the slide-fade animation
-  serviceElements.forEach(service => {
-    for (const child of service.children) {
-      inner_elements.push(child)
-    }
-  })
-  console.log('inner_elements', $gsap.utils.toArray(inner_elements))
-    const tl = $gsap.timeline({markers: true})
-
-  tl.from($gsap.utils.toArray(inner_elements), {
-      y: 10,
-      opacity: 0,
-      stagger: 0.2,
-    })
-
-  tl.to($gsap.utils.toArray(inner_elements), {
-      y: 0,
-      opacity: 1,
-      scrollTrigger: {
-        start: 'bottom',
-        // toggleActions: 'play complete none reset',
-      },
-      stagger: {
-        each: 0.2,
-        from: "end",
-      }, // Adjust the stagger value as needed
-    })
-
-})
+// onMounted(() => {
+//   const { $gsap, scrollTrigger } = useNuxtApp()
+//
+//   const serviceElements = document.querySelectorAll('#service');
+//   let inner_elements:any[] = []
+//   // Function to create the slide-fade animation
+//   serviceElements.forEach(service => {
+//     for (const child of service.children) {
+//       inner_elements.push(child)
+//     }
+//   })
+//   console.log('inner_elements', $gsap.utils.toArray(inner_elements))
+//     const tl = $gsap.timeline({markers: true})
+//
+//   tl.from($gsap.utils.toArray(inner_elements), {
+//       y: 10,
+//       opacity: 0,
+//       stagger: 0.2,
+//     })
+//
+//   tl.to($gsap.utils.toArray(inner_elements), {
+//       y: 0,
+//       opacity: 1,
+//       scrollTrigger: {
+//         start: 'bottom',
+//         // toggleActions: 'play complete none reset',
+//       },
+//       stagger: {
+//         each: 0.2,
+//         from: "end",
+//       }, // Adjust the stagger value as needed
+//     })
+//
+// })
 </script>
 
 <template>
@@ -226,35 +224,36 @@ onMounted(() => {
       </h2>
 
       <div class="flex lg:space-y-reverse mx-auto lg:mx-0 lg:flex-row space-x-4 mt-12 justify-center items-center w-full">
-          <CtaButton>Let's Talk</CtaButton>
-          <NkButton>Explore Projects</NkButton>
+        <nuxt-link href="/contact-us"><CtaButton>Let's Talk</CtaButton></nuxt-link>
+          <NkButton to="#projects">Explore Projects</NkButton>
       </div>
 
 
    </div>
 
-    <div class="my-16">
-      <div class="mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <h4 class="pl-8 text-xl text-slate-500">Loved by many</h4>
-        <div class="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5 mt-4">
-          <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
-            <img class="h-12" src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg" alt="Tuple">
-          </div>
-          <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
-            <img class="h-12" src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg" alt="Mirage">
-          </div>
-          <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
-            <img class="h-12" src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg" alt="StaticKit">
-          </div>
-          <div class="col-span-1 flex justify-center md:col-span-3 lg:col-span-1">
-            <img class="h-12" src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg" alt="Transistor">
-          </div>
-          <div class="col-span-2 flex justify-center md:col-span-3 lg:col-span-1">
-            <img class="h-12" src="https://tailwindui.com/img/logos/workcation-logo-gray-400.svg" alt="Workcation">
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="my-16">&nbsp;</div>
+    <!--<div class="my-16">-->
+    <!--  <div class="mx-auto py-12 px-4 sm:px-6 lg:px-8">-->
+    <!--    <h4 class="pl-8 text-xl text-slate-500">Loved by many</h4>-->
+    <!--    <div class="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5 mt-4">-->
+    <!--      <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">-->
+    <!--        <img class="h-12" src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg" alt="Tuple">-->
+    <!--      </div>-->
+    <!--      <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">-->
+    <!--        <img class="h-12" src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg" alt="Mirage">-->
+    <!--      </div>-->
+    <!--      <div class="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">-->
+    <!--        <img class="h-12" src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg" alt="StaticKit">-->
+    <!--      </div>-->
+    <!--      <div class="col-span-1 flex justify-center md:col-span-3 lg:col-span-1">-->
+    <!--        <img class="h-12" src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg" alt="Transistor">-->
+    <!--      </div>-->
+    <!--      <div class="col-span-2 flex justify-center md:col-span-3 lg:col-span-1">-->
+    <!--        <img class="h-12" src="https://tailwindui.com/img/logos/workcation-logo-gray-400.svg" alt="Workcation">-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--</div>-->
 
     <section class="mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 relative">
        <!--decorate-->
@@ -347,7 +346,9 @@ onMounted(() => {
                 At Afriq Silicon, we are committed to leveraging an elite toolset to architect scalable, real-world solutions for your business needs. Our expertise extends beyond just utilizing these tools; we have attained a level of mastery that ensures reliability and efficiency in our development processes. This proficiency in a comprehensive suite of technologies enables us to deliver robust, innovative solutions that drive growth and success for our clients. Trust us to be the technical partners who bring your visionary projects to life with precision and excellence.
               </p>
               <div class="mt-8 sm:flex space-x-4">
+                <nuxt-link href="/contact-us">
                  <CtaButton>Schedule a Session</CtaButton>
+                </nuxt-link>
               </div>
             </div>
             <div class="col-span-5 mt-8 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
@@ -374,7 +375,7 @@ onMounted(() => {
         </div>
     </section>
 
-    <section class="my-32">
+    <section id="projects" class="my-32">
       <ProjectsPreview />
     </section>
 
@@ -408,13 +409,5 @@ onMounted(() => {
   border-radius: 91.37213rem;
   background: linear-gradient(180deg, #0F3B57 0%, #F3BD78 100%);
   filter: blur(159.5px);
-}
-
-#service > #service-icon,
-#service > #service-title,
-#service > #service-description{
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s, transform 0.5s;
 }
 </style>

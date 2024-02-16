@@ -12,7 +12,9 @@
       <h4 class="font-hellix text-4xl md:text-4xl lg:text-7xl font-light text-center">
         Let’s build amazing software. <span class="font-bold">Together</span>
       </h4>
+      <nuxt-link href="/contact-us">
       <CtaButton class="mt-14">Free Consultation</CtaButton>
+      </nuxt-link>
     </div>
   </section>
 </template>
