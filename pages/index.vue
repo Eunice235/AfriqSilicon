@@ -211,15 +211,16 @@ const services = [
 //     })
 //
 // })
+
 </script>
 
 <template>
    <div id="hero" class="px-4 lg:max-w-4xl h-[50vh] md:h-[30vh] lg:h-[70vh] mx-auto grid place-content-center text-center relative mt-2 lg:mt-8">
-      <h1 class="text-3xl md:text-5xl lg:text-8xl font-display">
-        <span class="mr-4 font-bold bg-clip-text text-transparent silicon-gradient">Empowering</span>
+      <h1 class="text-3xl md:text-5xl lg:text-8xl font-display mt-8">
+        <span class="mr-4 font-semibold bg-clip-text text-transparent silicon-gradient">Empowering</span>
         <span class="font-thin">Innovation Through Software Excellence</span>
       </h1>
-      <h2 class="text-lg lg:text-4xl mt-8 lg:mt-20 font-hellix font-light">
+      <h2 class="text-lg lg:text-3xl mt-8 lg:mt-20 font-hellix font-light">
         We turn visionary ideas into digital reality, Afriq Silicon empowers businesses with tailored software solutions for unparalleled success.
       </h2>
 
@@ -339,7 +340,7 @@ const services = [
         <div class="mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-32">
           <div class="lg:grid lg:grid-cols-12 lg:gap-8 lg:items-center">
             <div class="col-span-7">
-              <h2 class="text-slate-800">
+              <h2 class="text-slate-800 text-4xl text-bold">
                 Expertise in Advanced Technology Solutions
               </h2>
               <p class="mt-3 max-w-3xl text-lg text-gray-600">
@@ -375,9 +376,12 @@ const services = [
         </div>
     </section>
 
+
     <section id="projects" class="my-32">
-      <ProjectsPreview />
+      <projectsview/>
     </section>
+
+
 
     <section id="services" class="my-32 relative">
        <div class="services-blob w-[10.26525rem] lg:w-[41.26525rem] h-[40.37213rem] lg:h-[91.37213rem] absolute -mt-20 lg:-mt-48"></div>
@@ -385,8 +389,9 @@ const services = [
         <h2 class="text-left">
           Our Comprehensive <br> Solutions
         </h2>
-
+        <nuxt-link to="/services">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-10 -px-12 pt-10">
+          
           <div id="service" class="col-span-6" v-for="item in services">
             <img id="service-icon" class="h-20 md:h-32" :src="`/images/custom-icons/${item.icon}.svg`" :alt="item.title">
             <h3 id="service-title" class="text-2xl mt-2 font-serif font-bold">{{item.title}}</h3>
@@ -394,7 +399,9 @@ const services = [
               {{item.description}}
             </p>
           </div>
+        
         </div>
+      </nuxt-link>
       </div>
     </section>
 

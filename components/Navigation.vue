@@ -3,16 +3,17 @@ import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/
 import {ref} from "vue";
 
 let navs = [
-    {name:'About Us', isPageLink: false, link:'#about-us', target:'_self' },
-    {name:'Services', isPageLink: false, link:'#services', target:'_self'},
-    {name:'Blog', isPageLink: false, link:'#', target:'_self', },
+    {name:'About Us', isPageLink: false, link:'/#about-us', target:'_self' },
+    {name:'Services', isPageLink: false, link:'/services', target:'_self'},
+    {name:'Projects', isPageLink: false, link:'#Projects', target:'_self'},
+    {name:'Blog', isPageLink: false, link:'#Blog', target:'_self', },
 ]
 const showMobileMenu = ref(true)
 const toggleMobile = () => {
   showMobileMenu.value = !showMobileMenu.value
 }
 
-function smoothScroll(e) {
+function smoothScroll(e:{ preventDefault: () => void; target: {getAttribute: (arg0: string) => any;};}) {
   e.preventDefault();
   const targetId = e.target.getAttribute("href");
   const targetElement = document.querySelector(targetId);
