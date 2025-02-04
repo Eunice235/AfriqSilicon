@@ -34,18 +34,36 @@ const testimonials = [
 // Function to duplicate testimonials
 const duplicateTestimonials = [...testimonials, ...testimonials];
 
-onMounted(() => {
-  // Start the animation when component is mounted
-  startAnimation(scrollerRight.value, 10); // Speed factor for right animation
-});
 
-function startAnimation(scrollerElement, speedFactor) {
+// Function to scroll the testimonials container to the left
+const scrollLeft = () => {
+    const container = scrollerRight.value;
+    if (container) {
+        container.scrollBy({ left: -100, behavior: 'smooth' }); 
+    }
+};
+
+// Function to scroll the testimonials container to the right
+const scrollRight = () => {
+    const container = scrollerRight.value;
+    if (container) {
+        container.scrollBy({ left: 100, behavior: 'smooth' }); 
+    }
+};
+
+
+//onMounted(() => {
+  // Start the animation when component is mounted
+  //startAnimation(scrollerRight.value, 10); // Speed factor for right animation
+//});
+
+//function startAnimation(scrollerElement, speedFactor) {
   // Calculate total width of all testimonials
-  const totalWidth = testimonials.length * 200 * 2; 
+  //const totalWidth = testimonials.length * 200 * 2; 
 
   // Create animation and can adjust the duration
-  scrollerElement.style.animation = `scroll-right ${totalWidth / speedFactor}s linear infinite`; 
-}
+ //'' scrollerElement.style.animation = `scroll-right ${totalWidth / speedFactor}s linear infinite`; 
+//}
 
 
 const faq = [
@@ -55,6 +73,11 @@ const faq = [
   { text: 'How scalable is your infrastructure to accommodate business growth?', answer: 'Our infrastructure is highly scalable and designed to scale seamlessly with the evolving needs of our clients. Whether you are a startup experiencing rapid growth or an established enterprise expanding your operations, our cloud-based architecture and elastic resources allow for effortless scalability without compromising performance or reliability.' },
   { text: 'What measures do you take to ensure data privacy and compliance with regulations?', answer: 'Protecting the privacy and confidentiality of user data is our top priority. We adhere to strict data protection regulations such as GDPR and HIPAA and implement robust privacy measures throughout our systems and processes. ' }
 ];
+
+
+
+
+
 // Array of boolean values to track answer visibility for each question
 const isOpen = ref(Array(faq.length).fill(false));
 
@@ -91,7 +114,7 @@ const hero = [
     <div class="flex flex-row justify-between  items-center mb-16 mt-4 pr-4 pl-4">
         <div class="flex flex-col justify-">
             <div class="flex flex-col justify-center">
-                <h1 class="font-semibold text-slate-200 text-6xl mb-6 font-Helix">OUR OFFERINGS</h1>
+                <h1 class="font-semibold text-slate-200 text-6xl mb-6 ">OUR OFFERINGS</h1>
                 <p class="text-slate-300 text-xl">Elevate Your Business With Our Tailored Solutions,<br> Delivering Unmatched Quality,
                      Innovation,<br> And Efficiency To Drive Tangible Results.</p>
             </div>
@@ -133,8 +156,8 @@ const hero = [
           <div class="col-span-4" v-for="item in hero">
             
             <img class="h-8 md:h-24" :src="`/images/custom-icons/${item.icon}.svg`" :alt="item.title">
-            <h3 class="mt-2 font-semibold text-lg text-slate-200 ">{{item.title}}</h3>
-            <p class="mt-2 text-slate-300 text-sm">
+            <h3 class="mt-2 font-semibold text-xl text-slate-200 ">{{item.title}}</h3>
+            <p class="mt-2 text-slate-300 text-sm font-regular">
               {{item.description}}
             </p>
             
@@ -155,14 +178,15 @@ const hero = [
                <h1 class="font-semibold text-3xl mb-8 text-slate-200" >Client Success Stories</h1>
                <p class="text-lg text-slate-300">Don't just take our word for it - see what our <br>clients have to say about their experience.</p>
             </div>  
+            
             <div class="flex flex-row items-center">
-                <img src="/images/custom-icons/left.svg" alt="Discover Nuxt 3" class="h-10 w-10 mr-4" />
-                <img src="/images/custom-icons/right.svg" alt="Discover Nuxt 3" class="h-10 w-10 " />
+                <img src="/images/custom-icons/left.svg" alt="Discover Nuxt 3" class="h-10 w-10 mr-4" @click="scrollLeft" />
+                <img src="/images/custom-icons/right.svg" alt="Discover Nuxt 3" class="h-10 w-10"  @click="scrollRight"/>
 
             </div>
         </div>
-        <div class="flex flex-row justify-between overflow-hidden animate-scroll-right ">
-            <div class="flex flex-row" ref="scrollerRight">
+        <div class="flex flex-row justify-between overflow-hidden animate-scroll-right " ref="scrollerRight">
+            <div class="flex flex-row" >
               <template v-for="(item, index) in duplicateTestimonials" :key="`testimony-${index}`">
                 <div class=" flex flex-col items-center justify-center col-span-4  m-4 p-4 bg-neutral-900"  v-for="item in testimonials" style="min-width: 200px;">
                   
@@ -176,6 +200,7 @@ const hero = [
                   
                         
            </div> 
+           
           </template>
          </div>
         
@@ -200,7 +225,7 @@ const hero = [
         <div class="flex flex-col border-b-2 border-gray-700 mb-8">
                 <div class="">
                  <h1 class="font-semibold text-slate-200 text-4xl mb-4" >Frequently Asked Questions </h1>
-                 <p class="mb-8 text-xl text-slate-300"> Don't take our word for it ask any questions <br>we are ready for you</p>
+                 <p class="mb-8 text-xl text-slate-300 font-regular"> Don't take our word for it ask any questions <br>we are ready for you</p>
                 </div>
          
                
@@ -209,8 +234,8 @@ const hero = [
       <div class="flex flex-row justify-between items-center   m-4">
         <div class="flex flex-row justify-start items-start space-x-8 m-4">
         <!--<h1>{{ index + 1 }}</h1>-->
-        <h1 class="ml-8 text-slate-300 text-2xl">{{ formattedIndex(index) }}</h1>
-        <p class="mr-8 text-slate-300 text-xl">{{ question.text }}</p>
+        <h1 class="ml-8 text-slate-300 text-2xl font-regular">{{ formattedIndex(index) }}</h1>
+        <p class="mr-8 text-slate-300 text-xl font-regular">{{ question.text }}</p>
         </div>
         <!-- Clickable icon to toggle answer visibility -->
         <img
@@ -223,7 +248,7 @@ const hero = [
       
       <!-- Answer section, only visible when isOpen[index] is true -->
       <div v-if="isOpen[index]" class="flex justify-start item-start">
-        <p class="text-slate-300 text-xl">{{ question.answer }}</p>
+        <p class="text-slate-400 text-lg font-regular">{{ question.answer }}</p>
       </div>
       
     </div>
